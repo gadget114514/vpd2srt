@@ -1,0 +1,13 @@
+{
+  "name": "vpd-to-srt",
+  "version": "1.0.0",
+  "description": "VPDファイルからSRT字幕を生成するElectronアプリ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "devDependencies": {
+    "electron": "31.0.0"
+  }
+}

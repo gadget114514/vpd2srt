@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPD to SRT - 字幕変換ツール</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎬 VPD to SRT</h1>
+      <p>VPDファイルからSRT字幕を生成</p>
+    </header>
+
+    <main>
+      <section class="upload-section">
+        <button id="openBtn" class="btn btn-primary">
+          📁 VPDファイルを開く
+        </button>
+        <input type="file" id="fileInput" accept=".vpd,application/json" style="display: none;">
+        <div id="fileInfo" class="file-info" style="display: none;">
+          <p>ファイル: <span id="fileName"></span></p>
+        </div>
+      </section>
+
+      <section class="preview-section" id="previewSection" style="display: none;">
+        <h2>字幕プレビュー</h2>
+        <div class="controls">
+          <input type="text" id="searchBox" placeholder="検索...">
+          <button id="generateBtn" class="btn btn-success">✨ SRTを生成</button>
+        </div>
+
+        <div id="subtitleList" class="subtitle-list">
+          <!-- 字幕がここに表示される -->
+        </div>
+      </section>
+
+      <section class="output-section" id="outputSection" style="display: none;">
+        <h2>SRTプレビュー</h2>
+        <textarea id="srtOutput" readonly></textarea>
+
+        <h3>保存設定</h3>
+        <div class="save-config">
+          <div class="form-group">
+            <label>出力ファイル名:</label>
+            <input type="text" id="outputFileName" class="file-name-input">
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="copyBtn" class="btn btn-secondary">📋 コピー</button>
+          <button id="saveBtn" class="btn btn-success">💾 ダウンロード</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="loading" class="loading" style="display: none;">
+      <div class="spinner"></div>
+      <p>処理中...</p>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="vpd-parser.js"></script>
+  <script src="srt-generator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
